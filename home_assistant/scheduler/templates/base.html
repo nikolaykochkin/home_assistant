@@ -1,0 +1,33 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="{% static 'favicon.ico' %}" />
+    <title>Ассистент</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="/">Домашний ассистент</a>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Найти</button>
+        </form>
+    </nav>
+    <div class="container">
+        {% block content %}
+        {% endblock %}    
+    </div> 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+</body>
+
+</html>
