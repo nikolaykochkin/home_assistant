@@ -7,27 +7,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
-    <link rel="icon" type="image/vnd.microsoft.icon" href="{% static 'favicon.ico' %}" />
+    <link rel="stylesheet" href="{% static 'scheduler/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'scheduler/all.min.css' %}">
     <title>Ассистент</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-        <a class="navbar-brand" href="/">Домашний ассистент</a>
+    <nav class="navbar navbar-dark bg-dark">
+        <div>
+            <a class="btn btn-outline-light" href="/"><i class="fas fa-home fa-lg"></i></a>
+            <a class="btn btn-outline-light" href="/todo"><i class="fas fa-tasks fa-lg"></i></a>
+            <a class="btn btn-outline-light" href="/task"><i class="far fa-calendar-plus fa-lg"></i></a>
+        </div>
         <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search">
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Найти</button>
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+                <i class="fas fa-search fa-lg"></i>
+            </button>
         </form>
+        <div>
+            <a class="btn btn-outline-light" href="/user"><i class="fas fa-user fa-lg"></i></a>
+        </div>
     </nav>
-    <div class="container">
+    <div class="container my-2">
         {% block content %}
-        {% endblock %}    
-    </div> 
+        {% endblock %}
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
-    <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'scheduler/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'scheduler/bootstrap.bundle.min.js' %}"></script>
 </body>
 
 </html>
