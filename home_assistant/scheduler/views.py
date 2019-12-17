@@ -9,3 +9,10 @@ class TaskList(generic.ListView):
 
     def get_queryset(self):
         return Task.objects.all()
+
+class TaskView(generic.ListView):
+    template_name = 'scheduler/task.html'
+    context_object_name = 'task'
+
+    def get_queryset(self):
+        return Task.objects.all()

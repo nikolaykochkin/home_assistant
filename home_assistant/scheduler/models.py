@@ -17,6 +17,7 @@ class Task(models.Model):
         User, on_delete=models.CASCADE, related_name='+', verbose_name='автор')
     description = models.TextField(verbose_name='описание', blank=True)
     active = models.BooleanField(verbose_name='активно', default=True)
+    done = models.BooleanField(verbose_name='сделано', default=False)
     start_date = models.DateTimeField(verbose_name='дата начала')
     end_date = models.DateTimeField(
         verbose_name='дата окончания', null=True, blank=True)
