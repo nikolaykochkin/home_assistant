@@ -1,11 +1,43 @@
 {% extends 'base.html' %}
 {% block content %}
 {% if task %}
-
-<h5 class="card-title">{{ task.name }}</h5>
-<h6 class="card-subtitle mb-2 text-muted">{{ task.author }}</h6>
-<p class="card-text">{{ task.description }}</p>
-<a href="#" class="card-link">Card link</a>
+<br>
+<h1>{{ task.name }}</h1>
+<br>
+<dl class="row">
+    <dt class="col-sm-2">Описание</dt>
+    <dd class="col-sm-9">{{ task.description }}</dd>
+    <dt class="col-sm-2">Исполнитель</dt>
+    <dd class="col-sm-9">{{ task.executor }}</dd>
+    <dt class="col-sm-2">Автор</dt>
+    <dd class="col-sm-9">{{ task.author }}</dd>
+    <dt class="col-sm-2">Сделано</dt>
+    <dd class="col-sm-9">{{ task.done }}</dd>
+    <dt class="col-sm-2">Начинаем</dt>
+    <dd class="col-sm-9">{{ task.start_date }}</dd>
+    <dt class="col-sm-2">Заканчиваем</dt>
+    <dd class="col-sm-9">{{ task.end_date }}</dd>
+    <dt class="col-sm-2">Во сколько начинаем</dt>
+    <dd class="col-sm-9">{{ task.start_time }}</dd>
+    <dt class="col-sm-2">По расписанию</dt>
+    <dd class="col-sm-9">{{ task.everyday }}</dd>
+    <dt class="col-sm-2">День месяца</dt>
+    <dd class="col-sm-9">{{ task.day_of_month }}</dd>
+    <dt class="col-sm-2">Понедельник</dt>
+    <dd class="col-sm-9">{{ task.monday }}</dd>
+    <dt class="col-sm-2">Вторник</dt>
+    <dd class="col-sm-9">{{ task.tuesday }}</dd>
+    <dt class="col-sm-2">Среда</dt>
+    <dd class="col-sm-9">{{ task.wednesday }}</dd>
+    <dt class="col-sm-2">Четверг</dt>
+    <dd class="col-sm-9">{{ task.thursday }}</dd>
+    <dt class="col-sm-2">Пятница</dt>
+    <dd class="col-sm-9">{{ task.friday }}</dd>
+    <dt class="col-sm-2">Суббота</dt>
+    <dd class="col-sm-9">{{ task.saturday }}</dd>
+    <dt class="col-sm-2">Воскресенье</dt>
+    <dd class="col-sm-9">{{ task.saturday }}</dd>
+</dl>
 
 {% endif %}
 {% endblock %}

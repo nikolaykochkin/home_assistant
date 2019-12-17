@@ -10,9 +10,15 @@ class TaskList(generic.ListView):
     def get_queryset(self):
         return Task.objects.all()
 
-class TaskView(generic.ListView):
+
+class TaskView(generic.DetailView):
     template_name = 'scheduler/task.html'
     context_object_name = 'task'
+    model = Task
 
-    def get_queryset(self):
-        return Task.objects.all()
+
+class TaskCreateView(generic.CreateView):
+    template_name = 'scheduler/task_form.html'
+    model = Task
+    fields = ['name', 'executor', 'author', 'description', 'active', 'done', 'start_date',
+              'end_date', 'start_time', 'everyday', 'day_of_month']
