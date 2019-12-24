@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.urls import reverse
 
 
 class User(AbstractUser):
@@ -36,9 +37,16 @@ class Task(models.Model):
     friday = models.BooleanField(verbose_name='пятница')
     saturday = models.BooleanField(verbose_name='суббота')
     sunday = models.BooleanField(verbose_name='воскресенье')
+    created = models.DateTimeField(
+        verbose_name='дата создания', auto_now_add=True)
+    changed = models.DateTimeField(
+        verbose_name='дата изменения', auto_now=True)
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('scheduler:task', kwargs={'pk': self.pk})
 
     class Meta:
         verbose_name = 'задача'
