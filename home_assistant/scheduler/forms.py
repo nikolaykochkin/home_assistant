@@ -33,7 +33,7 @@ class TaskCreateForm(forms.ModelForm):
                     'append': 'fa fa-calendar',
                     'icon_toggle': True,
                 }
-                ), 
+            ),
             'end_date': DatePicker(
                 options={
                     'useCurrent': True,
