@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'tempus_dominus',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,5 @@ STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 AUTH_USER_MODEL = 'scheduler.User'
+
+TEMPUS_DOMINUS_LOCALIZE = True

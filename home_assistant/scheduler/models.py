@@ -10,33 +10,45 @@ class User(AbstractUser):
 
 class Task(models.Model):
     name = models.CharField(
-        max_length=200, verbose_name='наименование', db_index=True)
+        max_length=200, verbose_name='задача', db_index=True)
+    description = models.TextField(verbose_name='что делать', blank=True)
     executor = models.ForeignKey(
-        User, on_delete=models.CASCADE,
-        verbose_name='исполнитель', related_name='+', db_index=True)
+        User,
+        on_delete=models.CASCADE,
+        verbose_name='кто делает',
+        related_name='+',
+        db_index=True)
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='+', verbose_name='автор')
-    description = models.TextField(verbose_name='описание', blank=True)
+        User,
+        on_delete=models.CASCADE,
+        related_name='+',
+        verbose_name='автор',
+        null=True,
+        blank=True)
+    due_date = models.DateTimeField(
+        verbose_name='когда', null=True, blank=True)
     active = models.BooleanField(verbose_name='активно', default=True)
     done = models.BooleanField(verbose_name='сделано', default=False)
-    start_date = models.DateTimeField(verbose_name='дата начала')
+    notify = models.BooleanField(verbose_name='уведомлять', default=False)
+    start_date = models.DateTimeField(verbose_name='с', null=True, blank=True)
     end_date = models.DateTimeField(
-        verbose_name='дата окончания', null=True, blank=True)
+        verbose_name='по', null=True, blank=True)
     start_time = models.TimeField(
         verbose_name='время начала', null=True, blank=True)
-    everyday = models.BooleanField(verbose_name='каждый день')
+    scheduled = models.BooleanField(
+        verbose_name='по расписанию', default=False)
     day_of_month = models.IntegerField(
         verbose_name='день месяца',
         blank=True,
         null=True,
         validators=[MinValueValidator(0), MaxValueValidator(31)])
-    monday = models.BooleanField(verbose_name='понедельник')
-    tuesday = models.BooleanField(verbose_name='вторник')
-    wednesday = models.BooleanField(verbose_name='среда')
-    thursday = models.BooleanField(verbose_name='четверг')
-    friday = models.BooleanField(verbose_name='пятница')
-    saturday = models.BooleanField(verbose_name='суббота')
-    sunday = models.BooleanField(verbose_name='воскресенье')
+    monday = models.BooleanField(verbose_name='пн')
+    tuesday = models.BooleanField(verbose_name='вт')
+    wednesday = models.BooleanField(verbose_name='ср')
+    thursday = models.BooleanField(verbose_name='чт')
+    friday = models.BooleanField(verbose_name='пт')
+    saturday = models.BooleanField(verbose_name='сб')
+    sunday = models.BooleanField(verbose_name='вс')
     created = models.DateTimeField(
         verbose_name='дата создания', auto_now_add=True)
     changed = models.DateTimeField(
